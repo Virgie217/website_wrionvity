@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Writer Generation Creativity</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+
+  /* Reset & Base */
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0; 
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #1e3c72 100%);
+    color: #f0f0f0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-attachment: fixed;
+    overflow-x: hidden;
+  }
+
+  /* Decorative background circles */
+  body::before, body::after {
+    content: "";
+    position: fixed;
+    border-radius: 50%;
+    opacity: 0.15;
+    filter: blur(100px);
+    z-index: 0;
+  }
+  body::before {
+    width: 400px;
+    height: 400px;
+    background: #ffcc00;
+    top: 30%;
+    left: -100px;
+  }
+  body::after {
+    width: 600px;
+    height: 600px;
+    background: #003366;
+    bottom: -200px;
+    right: -200px;
+  }
+
+  header {
+    background-color: rgba(10,10,10,0.6);
+    padding: 18px 30px;
+    position: sticky;
+    top: 0;
+    backdrop-filter: saturate(180%) blur(15px);
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+  }
+
+  header h1 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.9rem;
+    letter-spacing: 1.5px;
+    color: #ffcc00;
+  }
+
+  main {
+    flex-grow: 1;
+    max-width: 1100px;
+    margin: 40px auto 80px auto;
+    background: rgba(10,10,10,0.65);
+    border-radius: 14px;
+    padding: 30px 40px;
+    box-shadow: 0 12px 25px rgba(0,0,0,0.7);
+    position: relative;
+    z-index: 5;
+  }
+
+  section {
+    margin-bottom: 48px;
+  }
+
+  h2 {
+    font-weight: 700;
+    font-size: 2.4rem;
+    margin-bottom: 12px;
+    color: #ffcc00;
+    text-align: center;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.7);
+  }
+
+  h3 {
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: #ffd966;
+    margin-top: 22px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.55;
+    margin-bottom: 12px;
+    color: #ddd;
+  }
+
+  .cover {
+    background: color blue') center center/cover no-repeat;
+    height: 300px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: inset 0 0 50px #000a;
+    color: #ffcc00;
+    text-shadow: 1px 1px 10px #000;
+    margin-bottom: 40px;
+  }
+  .cover h2 {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+  }
+  .cover p {
+    font-size: 1.2rem;
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: 1.2px;
+  }
+
+  /* Owner & Founder with image */
+  .owner, .founder {
+    background: rgba(255 204 0 /0.1);
+    border-left: 5px solid #ffcc00;
+    padding: 18px 24px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    font-weight: 400;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .owner-img, .founder-img {
+    flex-shrink: 0;
+    width: 120px;
+    height: 120px;
+    border-radius: 12px;
+    border: 3px solid #ffcc00;
+    box-shadow: 0 4px 14px rgba(255, 204, 0, 0.65);
+    overflow: hidden;
+    background-color: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .owner-text, .founder-text {
+    flex: 1;
+    min-width: 220px;
+  }
+
+  @media (max-width: 520px) {
+    .owner, .founder {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
+  ul {
+    line-height: 1.5;
+    padding-left: 20px;
+    color: #ddd;
+  }
+
+  ul li {
+    margin-bottom: 6px;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    color: #f9f9f9;
+  }
+
+  th, td {
+    text-align: center;
+    border: 1px solid #444;
+    padding: 9px 12px;
+  }
+
+  th {
+    background-color: #ffcc00;
+    color: #00203f;
+  }
+
+  .social-media {
+    text-align: center;
+    margin-top: 12px;
+  }
+
+  .social-media a img {
+    width: 48px;
+    margin: 0 12px;
+    filter: drop-shadow(0 0 2px #0004);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  .social-media a img:hover {
+    transform: scale(1.1);
+  }
+
+  footer {
+    background: #050a0f;
+    color: #999;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
+    user-select: none;
+  }
+
+  /* Form styling */
+  form {
+    background: rgba(255 255 255 / 0.12);
+    padding: 24px 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #ffcc00aa inset;
+    max-width: 540px;
+    margin: 0 auto 40px auto;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #ffcc00;
+    user-select: none;
+  }
+
+  select, input[type="checkbox"] {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+
+  select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .member-genres label {
+    display: block;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #eee;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  
+  .member-genres input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+    accent-color: #ffcc00;
+  }
+
+  button {
+    background-color: #ffcc00;
+    color: #00203f;
+    border: none;
+    padding: 12px 32px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+    user-select: none;
+  }
+
+  button:hover, button:focus {
+    background-color: #ddb700;
+    outline: none;
+  }
+
+  /* Responsive */
+  @media (max-width: 720px) {
+    .cover {
+      height: 220px;
+    }
+    h2 {
+      font-size: 2rem;
+    }
+  }
+
+</style>
+</head>
+<body>
+<header>
+  <h1>Academy Wrionvity</h1>
+</header>
+
+<main>
+
+<section id="home" tabindex="6" aria-label="Halaman Home">
+  <div class="cover" role="img" aria-label="Gambar Sampul">
+      <h2>Welcome!</h2>
+  </div>
+
+  <article class="owner" tabindex="7" aria-label="Pemilik Komunitas">
+    <div class="owner-text">
+      <h3>Owner: Oliver</h3>
+      <p>Hai! Aku Oliver, pendiri Komunitas Writer Generation Creativity (Wrionvity), berdedikasi memajukan literasi dan kreativitas. WRIONVITY adalah komunitas untuk individu yang ingin mengasah kemampuan menulis mereka serta memberikan materi berupa Kepenulisan Umum, Bahasa dan juga berbagai Genre. Yuk mampir ke wattpad ku <a href="https://www.wattpad.com/user/GemlightG" target="_blank" rel="noopener noreferrer" style="color:#ffcc00;text-decoration:underline;">@GemlightG</a>.</p>
+    </div>
+  </article>
+
+  <article class="founder" tabindex="8" aria-label="Pendiri Komunitas">
+    <div class="founder-text">
+      <h3>Founder: Akira</h3>
+      <p>Hai! Panggil aku Kira! pendiri juga di komunitas Writer Generation Creativity. Seorang pembaca dan penulis di Dunia Orange sejak tahun 2016. Ingin tahu lebih banyak tentang aku? Sini mampir ke akun wattpad-ku dengan username <a href="https://www.wattpad.com/user/KiraYuki4" target="_blank" rel="noopener noreferrer" style="color:#ffcc00;text-decoration:underline;">@KiraYuki4</a>.</p>
+    </div>
+  </article>
+</section>
+
+<section id="about" tabindex="9" aria-label="Tentang Komunitas">
+  <h2>Tentang Wrionvity</h2>
+  <p><strong>WRIONVITY</strong> singkatan dari kata <em>Writer Generation Creativity</em></p>
+
+  <h3>Arti Kata</h3>
+  <p><strong>Writer</strong> artinya Menulis yaitu untuk menyatukan semua orang yang ingin menjadi seorang penulis.</p>
+  <p><strong>Generation</strong> artinya Generasi bangsa Indonesia. Jadi bakat menulis bisa menjadi turun temurun dan menumbuhkan calon generasi penerus seorang penulis sejak dini.</p>
+  <p><strong>Creativity</strong> artinya bisa berpikir kreatif untuk menentukan jalan sebuah ide cerita yang ingin kita buat.</p>
+
+  <h3>Definisi & Motto</h3>
+  <p>Membantu semua orang yang ingin belajar menjadi seorang penulis dan mempunyai tekad yang kuat agar menjadi seorang penulis bijaksana dan profesional dalam mengerjakan tugasnya.</p>
+  <p>Didirikan pada tanggal 11 Februari 2022</p>
+  <p>Diresmikan pada tanggal 15 Maret 2022</p>
+  <p><strong>Motto:</strong> Bertekadlah untuk mewujudkan cita-citamu karena sebuah pengorbanan tidak akan pernah mengecewakan.</p>
+
+  <h3>Makna Logo</h3>
+  <ul>
+    <li><strong>Biru Dongker</strong>: melambangkan kepercayaan, kecerdasan, dan ketenangan.</li>
+    <li><strong>Emas</strong>: prestasi, kesuksesan, kemewahan, kemenangan, dan kemakmuran.</li>
+    <li><strong>Lingkar Padi</strong>: kemakmuran, kesuburan, kesatuan dalam masyarakat, simbol kelimpahan dan kesejahteraan.</li>
+    <li><strong>Lampu</strong>: kreativitas dalam berpikir ide-ide cemerlang guna menghasilkan karya berkualitas dan profesionalisme.</li>
+    <li><strong>Lingkaran</strong>: hubungan erat dan keseimbangan tanpa awal atau akhir.</li>
+    <li><strong>Bintang</strong>: harapan, arah, tujuan, dan kesuksesan.</li>
+    <li><strong>Mahkota</strong>: pemimpin yang percaya diri, kejayaan, dan kemakmuran.</li>
+    <li><strong>Toga</strong>: cita-cita melalui pendidikan tinggi.</li>
+  </ul>
+
+  <h3>Visi, Misi & Tujuan</h3>
+  <p>Menjadi ibu yang melahirkan penulis hebat dan kreatif serta profesional dan konsisten.</p>
+  <p><strong>Visi:</strong> Membimbing murid menjadi penulis kreatif dan hebat.</p>
+  <p><strong>Misi:</strong></p>
+  <ul>
+    <li>Menjadikan anggota Academy Wrionvity tekad menjadi generasi penulis muda.</li>
+    <li>Memotivasi ide kreatif untuk menulis.</li>
+    <li>Menjadikan anggota mempunyai mental baja dan tidak mudah putus asa.</li>
+  </ul>
+</section>
+
+<section id="class" tabindex="10" aria-label="Sistem Belajar">
+  <h2>Sistem Belajar & Jadwal Kelas</h2>
+  <p>Belajar menulis dengan semangat, berdiskusi hangat.</p>
+  <p>Admin akan memberikan materi seminggu sekali, dilanjutkan diskusi materi & perkembangan project.</p>
+  <p>Tidak ada tugas — fokus utama project menulis cerita di Wattpad.</p>
+  <p>Syarat utama: wajib punya akun Wattpad.</p>
+  <p>Dalam 3 bulan wajib cerita: minimal 1 Prolog + 3 Bab. Tema cerita melalui voting, bebas interpretasi.</p>
+  <p>Anggota boleh pilih kelas sesuai minat (boleh lebih dari satu). Jika lebih dari satu, cerita harus mengandung genre semua kelas.</p>
+  <p>Sampul cerita dibuat masing-masing, wajib ada stiker WRIONVITY Project di dalamnya.</p>
+
+  <h3>Jadwal Kelas</h3>
+<table aria-label="Jadwal Kelas Wrionvity">
+  <thead>
+    <tr>
+      <th>Hari</th>
+      <th>Waktu</th>
+      <th>Kelas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Senin</td><td>08:00-22:00</td><td>Absensi</td></tr>
+    <tr><td></td><td>08:00-12:00</td><td>Promosi Cerita</td></tr>
+    <tr><td></td><td>13:00-15:00</td><td>Krisar</td></tr>
+    <tr><td>Selasa</td><td>19:00-20:00</td><td>Kepenulisan Umum</td></tr>
+    <tr><td></td><td>20:00-21:00</td><td>Genre Romance</td></tr>
+    <tr><td>Rabu</td><td>19:20-20:30</td><td>Genre Fantasy</td></tr>
+    <tr><td></td><td>20:30-21:30</td><td>Teen Fiction</td></tr>
+    <tr><td>Kamis</td><td>16:00-17:00</td><td>Genre Horor</td></tr>
+    <tr><td></td><td>17:00-18:00</td><td>Genre Comedy</td></tr>
+    <tr><td></td><td>20:00-21:00</td><td>Genre Adventure</td></tr>
+    <tr><td>Jumat</td><td>20:00-21:00</td><td>Genre Thriller</td></tr>
+    <tr><td>Sabtu</td><td>08:00-22:00</td><td>Sharing</td></tr>
+  </tbody>
+</table>
+  
+  <h3>Nama Ruang Kelas</h3>
+  <ul>
+    <li>MENTORS' LOUNGE</li>
+    <li>DISCOVERY HALL</li>
+    <li>INKWELL ROOM</li>
+    <li>MANAGEMENT SUITE</li>
+    <li>THRILLER ROOM</li>
+    <li>HOROR FANTASMI</li>
+    <li>ROMANTIC REVERIEL</li>
+    <li>COMEDY RELIEF ROOM</li>
+    <li>IMAGINARIUM FANTASY</li>
+    <li>ADVENTURE ZONE</li>
+    <li>TEEN DREAMWEAVER</li>
+  </ul>
+</section>
+
+<section id="contact" tabindex="11" aria-label="Kontak">
+  <h2>Contact</h2>
+  <p><strong>Oliver:</strong> 0878-5665-0489</p>
+  <p><strong>Akira:</strong> 0813-1010-5864</p>
+  <p><strong>Email:</strong> <a href="mailto:writergenerationcreativity@gmail.com" style="color:#ffcc00;">writergenerationcreativity@gmail.com</a></p>
+  <h3>Office Hour</h3>
+  <p>08:00 - 22:00 (Minggu Libur)</p>
+
+  <h3>Follow Us Online</h3>
+  <div class="social-media" aria-label="Ikon media sosial">
+    <a href="https://www.instagram.com/academy_wrionvity?igsh=MXRsMHdmOWV0azE5eA==/" target="_blank" rel="noopener" aria-label="Instagram"><img src="https://img.icons8.com/ios-filled/50/ffcc00/instagram-new.png" alt="Instagram logo"/></a>
+    <a href="https://www.instagram.com/book_wrionvity?igsh=OWtueWlveXVsemFy/" target="_blank" rel="noopener" aria-label="Instagram"><img src="https://img.icons8.com/ios-filled/50/ffcc00/instagram-new.png" alt="Instagram logo"/></a>
+    <a href="https://www.wattpad.com/user/WRIONVITY_Official?utm_source=android&utm_medium=link&utm_content=share_profile&wp_page=user_details&wp_uname=GemLightG/" target="_blank" rel="noopener" aria-label="Wattpad"><img src="https://img.icons8.com/ios-filled/50/ffcc00/wattpad.png" alt="Wattpad logo"/></a>
+  </div>
+</section>
+
+<section id="daftar" tabindex="12" aria-label="Form Daftar Anggota">
+  <h2>Daftar Anggota</h2>
+
+  <article>
+    <h3>Admin</h3>
+    <form id="adminForm" aria-label="Form pendaftaran Admin">
+      <label for="admin-role">Pilih Jabatan:</label>
+      <select id="admin-role" name="admin-role" required aria-required="true">
+        <option value="" disabled selected>Pilih Jabatan</option>
+        <option value="tata usaha">Tata Usaha</option>
+        <option value="sekretaris">Sekretaris</option>
+        <option value="grafik">Grafik</option>
+        <option value="kepenulisan">Kepenulisan</option>
+        <option value="fantasy">Fantasy</option>
+        <option value="teen-fiction">Teen Fiction</option>
+        <option value="romance">Romance</option>
+        <option value="adventure">Adventure</option>
+        <option value="horor">Horor</option>
+        <option value="comedy">Comedy</option>
+        <option value="thriller">Thriller</option>
+        <option value="project">Project</option>
+      </select>
+      <button type="button" onclick="sendAdminRegistration()">Kirim Admin</button>
+    </form>
+  </article>
+
+  <article>
+    <h3>Member</h3>
+    <form id="memberForm" aria-label="Form pendaftaran Member">
+      <div class="member-genres" role="group" aria-labelledby="genre-label">
+        <label id="genre-label" for="member-genres">Pilih Genre (maksimal 3):</label>
+        <label><input type="checkbox" name="genre" value="Fantasy" /> Fantasy</label>
+        <label><input type="checkbox" name="genre" value="Romance" /> Romance</label>
+        <label><input type="checkbox" name="genre" value="Comedy" /> Comedy</label>
+         <label><input type="checkbox" name="genre" value="Adventure" /> Adventure</label>
+        <label><input type="checkbox" name="genre" value="Teen Fiction" /> Teen Fiction</label>
+         <label><input type="checkbox" name="genre" value="Thriller" /> Thriller</label>
+        <label><input type="checkbox" name="genre" value="Horor" /> Horor</label>
+      </div>
+      <button type="button" onclick="sendMemberRegistration()">Kirim Member</button>
+    </form>
+  </article>
+
+</section>
+
+</main>
+
+<footer>
+  <p>© 2025 Writer Generation Creativity. All rights reserved.</p>
+</footer>
+
+<script>
+  // Member form max 3 checkbox control
+  const memberForm = document.getElementById('memberForm');
+  const memberCheckboxes = memberForm.querySelectorAll('input[type="checkbox"]');
+  const maxAllowed = 3;
+
+  memberCheckboxes.forEach(chk => {
+    chk.addEventListener('change', () => {
+      const checkedCount = Array.from(memberCheckboxes).filter(c => c.checked).length;
+      if (checkedCount > maxAllowed) {
+        chk.checked = false;
+        alert('Maaf, Anda hanya boleh memilih maksimal 3 genre.');
+      }
+    });
+  });
+
+  function sendAdminRegistration() {
+    const adminRole = document.getElementById('admin-role').value;
+    if (!adminRole) {
+      alert('Silakan pilih jabatan admin.');
+      return;
+    }
+    const message = `Halo, saya ingin mendaftar sebagai Admin dengan jabatan: ${adminRole}`;
+    const url = `https://wa.me/6287856650489?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  }
+
+function sendMemberRegistration() {
+    // return
+
+    const memberCheckboxes = document.querySelectorAll('#memberForm input[type="checkbox"]');
+    const checkedGenres = Array.from(memberCheckboxes).filter(c => c.checked).map(c => c.value);
+    if (checkedGenres.length === 0) {
+      alert('Silakan pilih minimal satu genre.');
+      return;
+    }
+    const message = `Halo, saya ingin mendaftar sebagai Member dengan genre: ${checkedGenres.join(', ')}`;
+    const url = `https://wa.me/6287856650489?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  }
+</script>
